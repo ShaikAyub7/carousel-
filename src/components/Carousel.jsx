@@ -15,7 +15,9 @@ const Carousel = () => {
       const response = await fetch(API_URL);
       const data = await response.json();
       setApiData(data.results);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
     };
 
     fetchUrl();
@@ -60,7 +62,11 @@ const Carousel = () => {
           </div>
         </>
       ) : (
-        <p>LOADING...</p>
+        <img
+          src="./Loading (1).gif"
+          alt=""
+          style={{ width: "100px", height: "100px" }}
+        />
       )}
     </div>
   );
