@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+let API_KEY = import.meta.env.VITE_API_KEY;
 
-const API_KEY = `0d4030d62b67940c9e96979f816fa897`;
-const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
-const IMG_PATH = "https://image.tmdb.org/t/p/w500";
+const API_URL = ` https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
+const IMG_PATH = `https://image.tmdb.org/t/p/w500`;
 
 const Carousel = () => {
   const [pagination, setPagination] = useState(0);
