@@ -37,6 +37,14 @@ const Carousel = () => {
       setPagination(pagination - 1);
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPagination((prev) => (prev >= apiData.length - 1 ? 0 : prev + 1));
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [apiData.length]);
   return (
     <div className="main">
       {!loading ? (
@@ -47,9 +55,8 @@ const Carousel = () => {
                 src={`${IMG_PATH + apiData[pagination].poster_path}`}
                 alt={IMG_PATH}
               />
-              <h3>{apiData[pagination].title}</h3>
-              <span>{apiData[pagination].id}</span>
-              <p>{apiData[pagination].overview}</p>
+              {/* <h3>{apiData[pagination].title}</h3>
+              <small>{apiData[pagination].overview}</small> */}
             </div>
             <div className="button">
               <button onClick={handlePrevious} className="btn rightBtn">
