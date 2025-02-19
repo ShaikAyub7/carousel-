@@ -45,6 +45,7 @@ const Carousel = () => {
 
     return () => clearInterval(interval);
   }, [apiData.length]);
+
   return (
     <div className="main">
       {!loading ? (
